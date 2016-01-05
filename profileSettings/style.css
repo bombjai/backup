@@ -1,0 +1,32 @@
+/* Profile Settings */
+.profile-settings .form-subhead { font-size: 13px; background: none; font-weight: 600; color: #6d6d72; }
+.profile-settings .form-subhead > span {display: block; text-transform: none; font-weight: normal; }
+.profile-settings .form-body { padding: 10px; }
+.profile-settings .form-body p { margin-bottom: 15px; color: #6d6d72; font-style: italic;}
+.profile-settings .form-body p.note { float: right; width: 30%; margin: 0; }
+.profile-settings .form-body p.note:after { clear: both; display: table; content: ""; }
+.profile-settings .form-body p > i { display: inline; }
+.profile-settings .form-body h3 { margin: 0 0 10px; background: none; padding-left: 0;}
+.profile-settings .form-body ul { margin: 10px 0 10px; border: none;}
+.profile-settings .form-body ul li { color: #777; font-size: 14px; list-style: none; padding-left: 25px;}
+.profile-settings .form-body:after { clear: both; display: table; content: ""; }
+.profile-settings .form-item { margin-bottom: 10px; }
+.profile-settings .form-item:after { display: table; content: ""; clear: both; }
+.profile-settings .form-item label { text-align: right; margin-right: 20px; }
+.profile-settings .required:before { content: "*"; color: red; margin-right: 5px; }
+.profile-settings .col-md-2 { width: 30%; float: left; margin-left: 15px;}
+.profile-settings .col-md-3 { margin-left: 35%; float: left; }
+.profile-settings .form-item input, .profile-settings .form-item select { transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; display: block; width: 100%; padding: 3px 6px; font-size: 14px; line-height: 2.428571; color: #555; vertical-align: middle; border: 1px solid #ccc!important; border-radius: 4px; }
+.profile-settings .form-item input.small, .profile-settings .form-item select.small { width: 20%; display: inline; }
+
+.profile-settings .error {background-color: #FA787E; }
+
+/* Profile Settings Mobile */
+@media only screen and (max-width: 640px) {
+	.profile-settings .form-item label {text-align: right;margin-right: 10px; width: 35%; }
+	.profile-settings .form-item input.small, .profile-settings .form-item select.small {width: 25%; }
+	.profile-settings .form-item input {width: 120%;}
+	.profile-settings .col-md-2 {width: 50%;float: left;margin: 0;}
+	.profile-settings .col-md-3 { margin-left: 0; float: right;}
+	.profile-settings .form-body p.note { width: inherit; margin-bottom: 15px; }
+}

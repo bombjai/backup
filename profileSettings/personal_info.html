@@ -1,0 +1,158 @@
+	<div class="columns">
+    <div class="medium-12 columns">
+        <div class="profile-settings" ng-controller="profileSettingPersonal">
+            <div class="data-wrap mc_wrapper">
+                <h2 class="bb kl">Edit your personal info: {{ name }}</h2>
+                <form novalidate class="profile-form" name="profileForm" ng-submit="submitForm(profileForm.$valid)" >
+                    <div class="form-body">
+                        <p class="description">Your current member information is shown in the fields below. Make any changes desired and click "Make Changes" when finished.</p>
+                        <p class="description">Fields marked with
+                            <i class="required"></i> required field are required.</p>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">First Name</label>
+                            <div class="col-md-2">
+                            	<!-- mp_trans_disable_start -->
+                                {{ firstName }}
+                                <!-- mp_trans_disable_end -->
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2 required">Last Name</label>
+                            <div class="col-md-2">
+                                <input type="text" ng-model="lastName" name="ulastName" ng-model-options="{ updateOn: 'focus' }" ng-pattern="/^\s*[a-zA-Z \'\-\.]{1,25}\s*$/" required tabindex="1" />
+               					<span class="error" ng-show="profileForm.ulastName.$dirty && profileForm.ulastName.$invalid">
+									<span ng-show="profileForm.ulastName.$error.required">Last name is required.</span>
+									<span ng-show="profileForm.ulastName.$error.pattern">Last name contains invalid characters.</span>
+								</span>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">Middle Initial</label>
+                            <div class="col-md-2">
+                                <input class="small" type="text" ng-model="middleInt" name="umiddleInt" ng-model-options="{ updateOn: 'focus' }" ng-pattern="/[a-zA-Z]/" maxlength="1" tabindex="2">
+                                <span class="error" ng-show="profileForm.umiddleInt.$dirty && profileForm.umiddleInt.$invalid">
+									<span ng-show="profileForm.umiddleInt.$error.pattern">Middle Initial contains invalid characters</span>
+								</span>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">Suffix</label>
+                            <div class="col-md-2">
+                                <select name="" id="" class="form-control small"></select>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label class="col-md-2 required">E-mail Address</label>
+                            <div class="col-md-2">
+			                    <input type="email" name="uemail" ng-model="email" ng-model-options="{ updateOn: 'focus' }" required>
+								<span class="error" ng-show="profileForm.uemail.$dirty && profileForm.uemail.$invalid">
+									<span ng-show="profileForm.uemail.$error.required">Email is required.</span>
+									<span ng-show="profileForm.uemail.$error.email">Invalid email address.</span>
+								</span>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">Social Security Number</label>
+                            <div class="col-md-2">
+								<!-- mp_trans_disable_start -->
+                                {{ ssn }}
+                                <!-- mp_trans_disable_end -->
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">Date of Birth</label>
+                            <div class="col-md-2">
+                            	<!-- mp_trans_disable_start -->
+                                {{ dob }}
+                                <!-- mp_trans_disable_end -->
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">Gender</label>
+                            <div class="col-md-2">
+                            	<!-- mp_trans_disable_start -->
+                                {{ gender }}
+                                <!-- mp_trans_disable_end -->
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2 required">Phone Number</label>
+                            <div class="col-md-2">(
+                                <input class="small" type="text"> )
+                                <input class="small" type="text"> -
+                                <input class="small" type="text">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">Driver's License Number</label>
+                            <div class="col-md-2">
+                                <input type="email">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">Driver's License State</label>
+                            <div class="col-md-2">
+                                <select name="" id="" class="form-control"></select>
+                            </div>
+                        </div>
+                        <h2 class="form-subhead">Current Home Address</h2>
+                        <div class="form-item">
+                            <label for="" class="col-md-2 required">Street Address</label>
+                            <div class="col-md-2">
+                                <input type="firstName"> </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2 required">City</label>
+                            <div class="col-md-2">
+                                <input type="lastName">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2 required">State</label>
+                            <div class="col-md-2">
+                                <select name="" id="" class="form-control">
+                                    <option>California</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2 required">Zip Code</label>
+                            <div class="col-md-2">
+                                <input type="zipCode">
+                            </div>
+                        </div>
+                        <h2 class="form-subhead">Previous Home Address <span>(If you've moved in the last two years)</span></h2>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">Street Address</label>
+                            <div class="col-md-2">
+                                <input type="firstName"> </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">City</label>
+                            <div class="col-md-2">
+                                <input type="lastName">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">State</label>
+                            <div class="col-md-2">
+                                <select name="" id="" class="form-control">
+                                    <option>California</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">Zip Code</label>
+                            <div class="col-md-2">
+                                <input type="zipCode">
+                            </div>
+                        </div>
+                        <input type="submit" value="Make Changes 333" class="">
+
+                        <div class="button ng-scope col-md-3">Make Changes</div>
+                    </div>
+                </form>
+	            </div>
+	        </div>
+	    </div>
+	</div>
