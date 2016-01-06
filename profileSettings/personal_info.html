@@ -1,6 +1,10 @@
-	<div class="columns">
+
+   <div class="mc_navheader hide-for-medium-down">Personal Info</div>
+   <div>
+
+    <div class="columns">
     <div class="medium-12 columns">
-        <div class="profile-settings" ng-controller="profileSettingPersonal">
+        <div id="profile-settings" class="profile-settings selen-profile-settings" ng-controller="profileSettingPersonal">
             <div class="data-wrap mc_wrapper">
                 <h2 class="bb kl">Edit your personal info: {{ name }}</h2>
                 <form novalidate class="profile-form" name="profileForm" ng-submit="submitForm(profileForm.$valid)" >
@@ -11,7 +15,7 @@
                         <div class="form-item">
                             <label for="" class="col-md-2">First Name</label>
                             <div class="col-md-2">
-                            	<!-- mp_trans_disable_start -->
+                                <!-- mp_trans_disable_start -->
                                 {{ firstName }}
                                 <!-- mp_trans_disable_end -->
                             </div>
@@ -19,42 +23,51 @@
                         <div class="form-item">
                             <label for="" class="col-md-2 required">Last Name</label>
                             <div class="col-md-2">
+                                <!-- mp_trans_disable_start -->
                                 <input type="text" ng-model="lastName" name="ulastName" ng-model-options="{ updateOn: 'focus' }" ng-pattern="/^\s*[a-zA-Z \'\-\.]{1,25}\s*$/" required tabindex="1" />
-               					<span class="error" ng-show="profileForm.ulastName.$dirty && profileForm.ulastName.$invalid">
-									<span ng-show="profileForm.ulastName.$error.required">Last name is required.</span>
-									<span ng-show="profileForm.ulastName.$error.pattern">Last name contains invalid characters.</span>
-								</span>
+                                <span class="error" ng-show="profileForm.ulastName.$dirty && profileForm.ulastName.$invalid">
+                                    <span ng-show="profileForm.ulastName.$error.required">Last name is required.</span>
+                                    <span ng-show="profileForm.ulastName.$error.pattern">Last name contains invalid characters.</span>
+                                </span>
+                                 <!-- mp_trans_disable_end -->
                             </div>
                         </div>
                         <div class="form-item">
                             <label for="" class="col-md-2">Middle Initial</label>
                             <div class="col-md-2">
+                                <!-- mp_trans_disable_start -->
                                 <input class="small" type="text" ng-model="middleInt" name="umiddleInt" ng-model-options="{ updateOn: 'focus' }" ng-pattern="/[a-zA-Z]/" maxlength="1" tabindex="2">
                                 <span class="error" ng-show="profileForm.umiddleInt.$dirty && profileForm.umiddleInt.$invalid">
-									<span ng-show="profileForm.umiddleInt.$error.pattern">Middle Initial contains invalid characters</span>
-								</span>
+                                    <span ng-show="profileForm.umiddleInt.$error.pattern">Middle Initial contains invalid characters</span>
+                                </span>
+                                <!-- mp_trans_disable_end -->
                             </div>
                         </div>
                         <div class="form-item">
                             <label for="" class="col-md-2">Suffix</label>
                             <div class="col-md-2">
-                                <select name="" id="" class="form-control small"></select>
+                                <!-- mp_trans_disable_start -->
+                                <select name="" id="" class="form-control small" ng-model="selected"
+                                ng-options="o for o in suffixes" tabindex="3"></select>
+                                <!-- mp_trans_disable_end -->
                             </div>
                         </div>
                         <div class="form-item">
                             <label class="col-md-2 required">E-mail Address</label>
                             <div class="col-md-2">
-			                    <input type="email" name="uemail" ng-model="email" ng-model-options="{ updateOn: 'focus' }" required>
-								<span class="error" ng-show="profileForm.uemail.$dirty && profileForm.uemail.$invalid">
-									<span ng-show="profileForm.uemail.$error.required">Email is required.</span>
-									<span ng-show="profileForm.uemail.$error.email">Invalid email address.</span>
-								</span>
+                                <!-- mp_trans_disable_start -->
+                                <input type="email" name="uemail" ng-model="email" ng-model-options="{ updateOn: 'focus' }" tabindex="4" required>
+                                <span class="error" ng-show="profileForm.uemail.$dirty && profileForm.uemail.$invalid">
+                                    <span ng-show="profileForm.uemail.$error.required">Email is required.</span>
+                                    <span ng-show="profileForm.uemail.$error.email">Invalid email address.</span>
+                                </span>
+                                <!-- mp_trans_disable_end -->
                             </div>
                         </div>
                         <div class="form-item">
                             <label for="" class="col-md-2">Social Security Number</label>
                             <div class="col-md-2">
-								<!-- mp_trans_disable_start -->
+                                <!-- mp_trans_disable_start -->
                                 {{ ssn }}
                                 <!-- mp_trans_disable_end -->
                             </div>
@@ -62,7 +75,7 @@
                         <div class="form-item">
                             <label for="" class="col-md-2">Date of Birth</label>
                             <div class="col-md-2">
-                            	<!-- mp_trans_disable_start -->
+                                <!-- mp_trans_disable_start -->
                                 {{ dob }}
                                 <!-- mp_trans_disable_end -->
                             </div>
@@ -70,89 +83,190 @@
                         <div class="form-item">
                             <label for="" class="col-md-2">Gender</label>
                             <div class="col-md-2">
-                            	<!-- mp_trans_disable_start -->
+                                <!-- mp_trans_disable_start -->
                                 {{ gender }}
                                 <!-- mp_trans_disable_end -->
                             </div>
                         </div>
                         <div class="form-item">
                             <label for="" class="col-md-2 required">Phone Number</label>
-                            <div class="col-md-2">(
-                                <input class="small" type="text"> )
-                                <input class="small" type="text"> -
-                                <input class="small" type="text">
+                            <div class="col-md-2">
+                                <!-- mp_trans_disable_start -->
+                                (
+                                <input class="small" name="uphone1" type="text" tabindex="5" maxlength="3" ng-model="phone1"  ng-model-options="{ updateOn: 'blur' }" ng-pattern="/^\d+$/" required> )
+                                <input class="small" name="uphone2" type="text" maxlength="3" tabindex="6" ng-model="phone2"  ng-model-options="{ updateOn: 'blur' }" ng-pattern="/^\d+$/" required> -
+                                <input class="small" name="uphone3" type="text" maxlength="4" tabindex="7" ng-model="phone3"  ng-model-options="{ updateOn: 'blur' }" ng-pattern="/^\d+$/" required>
+                                <span class="error" ng-show="profileForm.uphone1.$dirty && profileForm.uphone1.$invalid">
+                                    <span ng-show="profileForm.uphone1.$error.required">Phone is required.</span>
+                                    <span ng-show="profileForm.uphone1.$error.pattern">Phone Number contains invalid characters.</span>
+                                </span>
+                                <span class="error" ng-show="profileForm.uphone2.$dirty && profileForm.uphone2.$invalid">
+                                    <span ng-show="profileForm.uphone2.$error.required">Phone is required.</span>
+                                    <span ng-show="profileForm.uphone2.$error.pattern">Phone Number contains invalid characters.</span>
+                                </span>
+                                <span class="error" ng-show="profileForm.uphone3.$dirty && profileForm.uphone3.$invalid">
+                                    <span ng-show="profileForm.uphone3.$error.required">Phone is required.</span>
+                                    <span ng-show="profileForm.uphone3.$error.pattern">Phone Number contains invalid characters.</span>
+                                </span>
+                                 <!-- mp_trans_disable_end -->
                             </div>
                         </div>
                         <div class="form-item">
                             <label for="" class="col-md-2">Driver's License Number</label>
                             <div class="col-md-2">
-                                <input type="email">
+                                <!-- mp_trans_disable_start -->
+                                <input name="udriverNumber" type="text" tabindex="8">
+                                 <!-- mp_trans_disable_end -->
                             </div>
                         </div>
                         <div class="form-item">
                             <label for="" class="col-md-2">Driver's License State</label>
                             <div class="col-md-2">
-                                <select name="" id="" class="form-control"></select>
+                                <!-- mp_trans_disable_start -->
+                                <select name="udriverState" id="" class="form-control" tabindex="9"></select>
+                                 <!-- mp_trans_disable_end -->
                             </div>
                         </div>
                         <h2 class="form-subhead">Current Home Address</h2>
                         <div class="form-item">
                             <label for="" class="col-md-2 required">Street Address</label>
                             <div class="col-md-2">
-                                <input type="firstName"> </div>
+                                <!-- mp_trans_disable_start -->
+                                <input name="ucurrentAdd" type="text" tabindex="10" ng-model-options="{ updateOn: 'focus' }" ng-model="currentAddress" ng-pattern="/^\s*[a-zA-Z0-9 \/\.\,#\-\\]{1,60}\s*$/" required>
+                                <span class="error" ng-show="profileForm.ucurrentAdd.$dirty && profileForm.ucurrentAdd.$invalid">
+                                    <span ng-show="profileForm.ucurrentAdd.$error.required">Address is required.</span>
+                                    <span ng-show="profileForm.ucurrentAdd.$error.pattern">Address  contains invalid characters.</span>
+                                </span>
+                                 <!-- mp_trans_disable_end -->
+                            </div>
                         </div>
                         <div class="form-item">
                             <label for="" class="col-md-2 required">City</label>
                             <div class="col-md-2">
-                                <input type="lastName">
+                                <!-- mp_trans_disable_start -->
+                                <input name="ucurrentCity" type="text" tabindex="11" ng-model="currentCity" ng-pattern="/^\s*[a-zA-Z \.]{1,50}\s*$/" required>
+                                <span class="error" ng-show="profileForm.ucurrentCity.$dirty && profileForm.ucurrentCity.$invalid">
+                                    <span ng-show="profileForm.ucurrentCity.$error.required">City is required.</span>
+                                    <span ng-show="profileForm.ucurrentCity.$error.pattern">City  contains invalid characters.</span>
+                                </span>
+                                <!-- mp_trans_disable_end -->
                             </div>
                         </div>
                         <div class="form-item">
                             <label for="" class="col-md-2 required">State</label>
                             <div class="col-md-2">
-                                <select name="" id="" class="form-control">
+                                <!-- mp_trans_disable_start -->
+                                <select name="ucurrentState" class="form-control" tabindex="12">
                                     <option>California</option>
                                 </select>
+                                <!-- mp_trans_disable_end -->
                             </div>
                         </div>
                         <div class="form-item">
                             <label for="" class="col-md-2 required">Zip Code</label>
                             <div class="col-md-2">
-                                <input type="zipCode">
+                                <!-- mp_trans_disable_start -->
+                                <input name="ucurrentZip" type="text" maxlength="5" tabindex="13" ng-model="currentZip" ng-pattern="/^\d+$/" required>
+                                <span class="error" ng-show="profileForm.ucurrentZip.$dirty && profileForm.ucurrentZip.$invalid">
+                                    <span ng-show="profileForm.ucurrentZip.$error.required">Zip Code is required.</span>
+                                    <span ng-show="profileForm.ucurrentZip.$error.pattern">Zip Code  contains invalid characters.</span>
+                                </span>
+                                <!-- mp_trans_disable_end -->
                             </div>
                         </div>
                         <h2 class="form-subhead">Previous Home Address <span>(If you've moved in the last two years)</span></h2>
                         <div class="form-item">
                             <label for="" class="col-md-2">Street Address</label>
                             <div class="col-md-2">
-                                <input type="firstName"> </div>
+                                <!-- mp_trans_disable_start -->
+                                <input name="uprevAdd" type="text" tabindex="14" ng-model="previousAdd" ng-pattern="/^\s*[a-zA-Z0-9 \/\.\,#\-\\]{1,60}\s*$/">
+                                <span class="error" ng-show="profileForm.uprevAdd.$dirty && profileForm.uprevAdd.$invalid">
+                                    <span ng-show="profileForm.uprevAdd.$error.required">Address is required.</span>
+                                    <span ng-show="profileForm.uprevAdd.$error.pattern">Address  contains invalid characters.</span>
+                                </span>
+                                <!-- mp_trans_disable_end -->
+                            </div>
                         </div>
                         <div class="form-item">
                             <label for="" class="col-md-2">City</label>
                             <div class="col-md-2">
-                                <input type="lastName">
+                                <!-- mp_trans_disable_start -->
+                                <input name="uprevCity" type="text" tabindex="15" ng-model="previousCity" ng-pattern="/^\s*[a-zA-Z \.]{1,50}\s*$/">
+                                <span class="error" ng-show="profileForm.uprevCity.$dirty && profileForm.uprevCity.$invalid">
+                                    <span ng-show="profileForm.uprevCity.$error.required">City is required.</span>
+                                    <span ng-show="profileForm.uprevCity.$error.pattern">City  contains invalid characters.</span>
+                                </span>
+                                <!-- mp_trans_disable_end -->
                             </div>
                         </div>
                         <div class="form-item">
                             <label for="" class="col-md-2">State</label>
                             <div class="col-md-2">
-                                <select name="" id="" class="form-control">
+                                <!-- mp_trans_disable_start -->
+                                <select name="uprevState" class="form-control" tabindex="16">
                                     <option>California</option>
                                 </select>
+                                <!-- mp_trans_disable_end -->
                             </div>
                         </div>
                         <div class="form-item">
                             <label for="" class="col-md-2">Zip Code</label>
                             <div class="col-md-2">
-                                <input type="zipCode">
+                                <!-- mp_trans_disable_start -->
+                                <input name="uprevAdd" type="text" maxlength="5" tabindex="17" ng-model="previousZip" ng-pattern="/^\d+$/">
+                                <span class="error" ng-show="profileForm.uprevAdd.$dirty && profileForm.uprevAdd.$invalid">
+                                    <span ng-show="profileForm.uprevAdd.$error.required">Zip Code is required.</span>
+                                    <span ng-show="profileForm.uprevAdd.$error.pattern">Zip Code  contains invalid characters.</span>
+                                </span>
+                                <!-- mp_trans_disable_end -->
                             </div>
                         </div>
-                        <input type="submit" value="Make Changes 333" class="">
-
-                        <div class="button ng-scope col-md-3">Make Changes</div>
+                        <div class="text-error" ng-if="errorMsg !== ''">{{ errorMsg }}</div>
+                        <input type="submit" name="makeChanges" value="Make Changes" class="btnSubmit col-md-3" tabindex="18">
                     </div>
                 </form>
-	            </div>
-	        </div>
-	    </div>
-	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+controllersModule.controller('profileSettingPersonal', ['$scope', '$timeout', 'GetData', '$rootScope', 
+    function($scope, $timeout, GetData, $rootScope) {
+        
+        //default value
+        $scope.user = {};
+        $scope.errorMsg = '';
+        $scope.suffixes = ["Jr", "Sr", "I", "II", "III", "IV"];
+
+        // read-only value
+        $scope.firstName = "test";
+        $scope.ssn = "XXX-XX-4121";
+        $scope.dob = "Jan 1, 2015";
+        $scope.gender = "Male";
+
+        //bind to select
+        //http://stackoverflow.com/questions/20672207/ng-select-with-an-object-and-its-properties-in-angularjs
+          $scope.objectOptions = {
+            "Blue": "color_1",
+            "Red": "color_2",
+            "Green": "color_3"
+          }
+
+
+        //submit
+        $scope.submitForm = function(isValid) {
+           if (isValid) {
+             $scope.errorMsg = "CORRECT";
+            
+           }
+           else {
+
+            $scope.errorMsg = "Please fill in the required fields";
+           }
+        }
+
+}]);

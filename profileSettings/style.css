@@ -12,14 +12,15 @@
 .profile-settings .form-body:after { clear: both; display: table; content: ""; }
 .profile-settings .form-item { margin-bottom: 10px; }
 .profile-settings .form-item:after { display: table; content: ""; clear: both; }
-.profile-settings .form-item label { text-align: right; margin-right: 20px; }
+.profile-settings .form-item label { text-align: right; margin-right: 20px; font-size: 15px;line-height: 15px;font-weight: 600; color: black;}
 .profile-settings .required:before { content: "*"; color: red; margin-right: 5px; }
 .profile-settings .col-md-2 { width: 30%; float: left; margin-left: 15px;}
-.profile-settings .col-md-3 { margin-left: 35%; float: left; }
-.profile-settings .form-item input, .profile-settings .form-item select { transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; display: block; width: 100%; padding: 3px 6px; font-size: 14px; line-height: 2.428571; color: #555; vertical-align: middle; border: 1px solid #ccc!important; border-radius: 4px; }
-.profile-settings .form-item input.small, .profile-settings .form-item select.small { width: 20%; display: inline; }
-
-.profile-settings .error {background-color: #FA787E; }
+.profile-settings .col-md-3 { margin-left: 35%!important; float: left; }
+.profile-settings .form-item input, .profile-settings .form-item select { transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; display: block; width: 100%; padding: 3px 6px!important; font-size: 14px; line-height: 2.428571; color: #555; vertical-align: middle; border-radius: 4px; box-shadow: 0px 0px 2px 1px rgba(154,154,154,0.8)!important;}
+.profile-settings .form-item input.small, .profile-settings .form-item select.small { width: 20%; display: inline; text-align: center;}
+.profile-settings .btnSubmit {background-color: #1b75bc!important; font-size: 15px; font-weight: 400; border-radius: 5px!important; -moz-border-radius: 5px!important; -webkit-border-radius: 5px!important; padding: 15px 80px!important; color: white;}
+.profile-settings .error, .profile-settings .text-error {background-color: #FA787E; }
+.profile-settings .text-error { color: white; padding: 5px;}
 
 /* Profile Settings Mobile */
 @media only screen and (max-width: 640px) {
@@ -27,6 +28,6 @@
 	.profile-settings .form-item input.small, .profile-settings .form-item select.small {width: 25%; }
 	.profile-settings .form-item input {width: 120%;}
 	.profile-settings .col-md-2 {width: 50%;float: left;margin: 0;}
-	.profile-settings .col-md-3 { margin-left: 0; float: right;}
+	.profile-settings .col-md-3 { margin-left: 0!important; float: right;}
 	.profile-settings .form-body p.note { width: inherit; margin-bottom: 15px; }
 }
