@@ -1,0 +1,68 @@
+
+What is Sass?
+
+Sass stands for Syntactically Awesome Style Sheets. 
+
+Another version could be called. SCSS stands for Sassy Cascading Style Sheet.
+
+The different between sass and scss is the syntax. Sass file doesn't require to put any curly braces or semi-colon. While scss is very similar to css.
+
+It's a CSS-preprocessor. Sass includes feature like variables, nesting, mixins, functions, and more. In the end it will help us create the css file.
+
+
+Why Sass over LESS
+
+Sass is completely compatible with all versions of CSS. 
+most mature, stable, and powerful professional grade CSS extension language in the world.
+
+
+
+
+What are the benefits --- How myFICO could benefit
+
+
+
+
+Framework - Compass, Bourbon
+	-simple and lightweight mixin library for Sass.
+
+
+Partials/import module
+
+The Structure
+Base	
+	-Function: output from a function is a single value of data type: numbers, strings, colors, booleans, or lists
+	-Mixins: Reuse the block of code. Reduce dry. Also could pass arguments.
+	-Placeholder:
+	-Variable: Declare a variable to be used later on. storing the information. ex: color hex
+Framework
+	-Breakpoints: use for responsive
+	-Grid: the structure of the layout
+	-Layout: the component of the structure like, header, body, footer
+	-Reset: default everything to zero. Start from sctach.
+Modules
+	-Buttons: button classes
+	-Componenents: remove?
+	-Icons: icon
+	-Lists: any UL format placeholder
+Shared
+	-Accounts: account page
+	-Alerts: alert page
+Vendor
+	Any other framework needed or other library
+
+At the end we have our main Scss file
+	-myf_style.scss - this include all the imported partials.
+
+
+
+
+
+
+
+
+
+
+
+
+
