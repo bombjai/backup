@@ -1,13 +1,14 @@
 
 What is Sass?
 
+It's a CSS-preprocessor. Sass includes feature like variables, nesting, mixins, functions, and more. In the end it will help us create the css file.
+
 Sass stands for Syntactically Awesome Style Sheets. 
 
 Another version could be called. SCSS stands for Sassy Cascading Style Sheet.
 
 The different between sass and scss is the syntax. Sass file doesn't require to put any curly braces or semi-colon. While scss is very similar to css.
 
-It's a CSS-preprocessor. Sass includes feature like variables, nesting, mixins, functions, and more. In the end it will help us create the css file.
 
 
 Why Sass over LESS
@@ -20,20 +21,21 @@ most mature, stable, and powerful professional grade CSS extension language in t
 
 What are the benefits --- How myFICO could benefit
 
-
+- Fewer HTTP Requests by Using the @import
+- More Organized / better comments
+- Reduce DRY
+- Faster, more efficient, and easier to maintain.
 
 
 Framework - Compass, Bourbon
-	-simple and lightweight mixin library for Sass.
+	- Simple and lightweight mixin library for Sass. Compass is a collection of helpful tools and battle-tested best practices for Sass.
 
 
-Partials/import module
-
-The Structure
+The Structure - Partials/import module
 Base	
-	-Function: output from a function is a single value of data type: numbers, strings, colors, booleans, or lists
-	-Mixins: Reuse the block of code. Reduce dry. Also could pass arguments.
-	-Placeholder:
+	-Function: output from a function is a to return a single value of data type: numbers, strings, colors, booleans, or lists
+	-Mixins: Reuse the block of code. Reduce dry. Also could pass arguments. Like include. ex: browser prefixes
+	-Placeholder: Use to extend 
 	-Variable: Declare a variable to be used later on. storing the information. ex: color hex
 Framework
 	-Breakpoints: use for responsive
