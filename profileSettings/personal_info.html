@@ -1,261 +1,227 @@
-
-   <div class="mc_navheader hide-for-medium-down">Personal Info</div>
-   <div>
-
-    <div class="columns">
+          
+   <div class="columns">
     <div class="medium-12 columns">
-        <div id="profile-settings" class="profile-settings selen-profile-settings" ng-controller="profileSettingPersonal">
+        <div id="profile-settings" class="profile-settings selen-profile-settings" ng-controller="profileSettingPassword">
             <div class="data-wrap mc_wrapper">
-                <h2 class="bb kl">Edit your personal info: {{ name }}</h2>
-                <form novalidate class="profile-form" name="profileForm" ng-submit="submitForm(profileForm.$valid)" >
+                <h2 class="bb kl">Change your password</h2>
+                <form novalidate class="profile-form" name="profileForm" ng-submit="submitForm(profileForm.$valid)">
                     <div class="form-body">
-                        <p class="description">Your current member information is shown in the fields below. Make any changes desired and click "Make Changes" when finished.</p>
-                        <p class="description">Fields marked with
-                            <i class="required"></i> required field are required.</p>
+                        <p>Change your password using the fields below and click "Make Changes" when finished.</p>
                         <div class="form-item">
-                            <label for="" class="col-md-2">First Name</label>
+                            <label for="" class="col-md-2">Current Password</label>
                             <div class="col-md-2">
                                 <!-- mp_trans_disable_start -->
-                                {{ firstName }}
-                                <!-- mp_trans_disable_end -->
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="" class="col-md-2 required">Last Name</label>
-                            <div class="col-md-2">
-                                <!-- mp_trans_disable_start -->
-                                <input type="text" ng-model="lastName" name="ulastName" ng-model-options="{ updateOn: 'focus' }" ng-pattern="/^\s*[a-zA-Z \'\-\.]{1,25}\s*$/" required tabindex="1" />
-                                <span class="error" ng-show="profileForm.ulastName.$dirty && profileForm.ulastName.$invalid">
-                                    <span ng-show="profileForm.ulastName.$error.required">Last name is required.</span>
-                                    <span ng-show="profileForm.ulastName.$error.pattern">Last name contains invalid characters.</span>
-                                </span>
-                                 <!-- mp_trans_disable_end -->
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="" class="col-md-2">Middle Initial</label>
-                            <div class="col-md-2">
-                                <!-- mp_trans_disable_start -->
-                                <input class="small" type="text" ng-model="middleInt" name="umiddleInt" ng-model-options="{ updateOn: 'focus' }" ng-pattern="/[a-zA-Z]/" maxlength="1" tabindex="2">
-                                <span class="error" ng-show="profileForm.umiddleInt.$dirty && profileForm.umiddleInt.$invalid">
-                                    <span ng-show="profileForm.umiddleInt.$error.pattern">Middle Initial contains invalid characters</span>
+                                <input type="password" name="currentPass" ng-model="currentPass" ng-pattern="/^\s*(([0-9]+[a-zA-Z]+[0-9a-zA-Z]*)|([a-zA-Z]+[0-9]+[0-9a-zA-Z]*))\s*$/" ng-model-options="{ updateOn: 'blur' }"  maxlength="30" ng-minlength="8" tabindex="1" required>
+                                <span class="error" ng-show="profileForm.currentPass.$dirty && profileForm.currentPass.$invalid">
+                                    <span ng-show="profileForm.currentPass.$error.required">Password is required.</span>
+                                    <span ng-show="profileForm.currentPass.$error.minlength">Password must be a minimum of eight characters.</span>
+                                    <span ng-show="profileForm.currentPass.$error.pattern">Password contains invalid characters.</span>
                                 </span>
                                 <!-- mp_trans_disable_end -->
                             </div>
                         </div>
+                        <p class="note">8 characters minimum (must contain at least 1 letter and 1 number).</p>
                         <div class="form-item">
-                            <label for="" class="col-md-2">Suffix</label>
+                            <label for="" class="col-md-2">New Password</label>
                             <div class="col-md-2">
                                 <!-- mp_trans_disable_start -->
-                                <select name="" id="" class="form-control small" ng-model="selected"
-                                ng-options="o for o in suffixes" tabindex="3"></select>
-                                <!-- mp_trans_disable_end -->
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <label class="col-md-2 required">E-mail Address</label>
-                            <div class="col-md-2">
-                                <!-- mp_trans_disable_start -->
-                                <input type="email" name="uemail" ng-model="email" ng-model-options="{ updateOn: 'focus' }" tabindex="4" required>
-                                <span class="error" ng-show="profileForm.uemail.$dirty && profileForm.uemail.$invalid">
-                                    <span ng-show="profileForm.uemail.$error.required">Email is required.</span>
-                                    <span ng-show="profileForm.uemail.$error.email">Invalid email address.</span>
+                                <input type="password" name="newPass" ng-model="newPass" ng-pattern="/^\s*(([0-9]+[a-zA-Z]+[0-9a-zA-Z]*)|([a-zA-Z]+[0-9]+[0-9a-zA-Z]*))\s*$/" ng-model-options="{ updateOn: 'blur' }"  maxlength="30" ng-minlength="8" tabindex="2" required>
+                                 <span class="error" ng-show="profileForm.newPass.$dirty && profileForm.newPass.$invalid">
+                                    <span ng-show="profileForm.newPass.$error.required">Password is required.</span>
+                                    <span ng-show="profileForm.newPass.$error.minlength">Password must be a minimum of eight characters.</span>
+                                    <span ng-show="profileForm.newPass.$error.pattern">Password contains invalid characters.</span>
                                 </span>
                                 <!-- mp_trans_disable_end -->
                             </div>
-                        </div>
+                        </div> 
                         <div class="form-item">
-                            <label for="" class="col-md-2">Social Security Number</label>
+                            <label for="" class="col-md-2">Re-enter New Password </label>
                             <div class="col-md-2">
                                 <!-- mp_trans_disable_start -->
-                                {{ ssn }}
-                                <!-- mp_trans_disable_end -->
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="" class="col-md-2">Date of Birth</label>
-                            <div class="col-md-2">
-                                <!-- mp_trans_disable_start -->
-                                {{ dob }}
-                                <!-- mp_trans_disable_end -->
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="" class="col-md-2">Gender</label>
-                            <div class="col-md-2">
-                                <!-- mp_trans_disable_start -->
-                                {{ gender }}
-                                <!-- mp_trans_disable_end -->
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="" class="col-md-2 required">Phone Number</label>
-                            <div class="col-md-2">
-                                <!-- mp_trans_disable_start -->
-                                (
-                                <input class="small" name="uphone1" type="text" tabindex="5" maxlength="3" ng-model="phone1"  ng-model-options="{ updateOn: 'blur' }" ng-pattern="/^\d+$/" required> )
-                                <input class="small" name="uphone2" type="text" maxlength="3" tabindex="6" ng-model="phone2"  ng-model-options="{ updateOn: 'blur' }" ng-pattern="/^\d+$/" required> -
-                                <input class="small" name="uphone3" type="text" maxlength="4" tabindex="7" ng-model="phone3"  ng-model-options="{ updateOn: 'blur' }" ng-pattern="/^\d+$/" required>
-                                <span class="error" ng-show="profileForm.uphone1.$dirty && profileForm.uphone1.$invalid">
-                                    <span ng-show="profileForm.uphone1.$error.required">Phone is required.</span>
-                                    <span ng-show="profileForm.uphone1.$error.pattern">Phone Number contains invalid characters.</span>
-                                </span>
-                                <span class="error" ng-show="profileForm.uphone2.$dirty && profileForm.uphone2.$invalid">
-                                    <span ng-show="profileForm.uphone2.$error.required">Phone is required.</span>
-                                    <span ng-show="profileForm.uphone2.$error.pattern">Phone Number contains invalid characters.</span>
-                                </span>
-                                <span class="error" ng-show="profileForm.uphone3.$dirty && profileForm.uphone3.$invalid">
-                                    <span ng-show="profileForm.uphone3.$error.required">Phone is required.</span>
-                                    <span ng-show="profileForm.uphone3.$error.pattern">Phone Number contains invalid characters.</span>
-                                </span>
-                                 <!-- mp_trans_disable_end -->
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="" class="col-md-2">Driver's License Number</label>
-                            <div class="col-md-2">
-                                <!-- mp_trans_disable_start -->
-                                <input name="udriverNumber" type="text" tabindex="8">
-                                 <!-- mp_trans_disable_end -->
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="" class="col-md-2">Driver's License State</label>
-                            <div class="col-md-2">
-                                <!-- mp_trans_disable_start -->
-                                <select name="udriverState" id="" class="form-control" tabindex="9"></select>
-                                 <!-- mp_trans_disable_end -->
-                            </div>
-                        </div>
-                        <h2 class="form-subhead">Current Home Address</h2>
-                        <div class="form-item">
-                            <label for="" class="col-md-2 required">Street Address</label>
-                            <div class="col-md-2">
-                                <!-- mp_trans_disable_start -->
-                                <input name="ucurrentAdd" type="text" tabindex="10" ng-model-options="{ updateOn: 'focus' }" ng-model="currentAddress" ng-pattern="/^\s*[a-zA-Z0-9 \/\.\,#\-\\]{1,60}\s*$/" required>
-                                <span class="error" ng-show="profileForm.ucurrentAdd.$dirty && profileForm.ucurrentAdd.$invalid">
-                                    <span ng-show="profileForm.ucurrentAdd.$error.required">Address is required.</span>
-                                    <span ng-show="profileForm.ucurrentAdd.$error.pattern">Address  contains invalid characters.</span>
-                                </span>
-                                 <!-- mp_trans_disable_end -->
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="" class="col-md-2 required">City</label>
-                            <div class="col-md-2">
-                                <!-- mp_trans_disable_start -->
-                                <input name="ucurrentCity" type="text" tabindex="11" ng-model="currentCity" ng-pattern="/^\s*[a-zA-Z \.]{1,50}\s*$/" required>
-                                <span class="error" ng-show="profileForm.ucurrentCity.$dirty && profileForm.ucurrentCity.$invalid">
-                                    <span ng-show="profileForm.ucurrentCity.$error.required">City is required.</span>
-                                    <span ng-show="profileForm.ucurrentCity.$error.pattern">City  contains invalid characters.</span>
-                                </span>
-                                <!-- mp_trans_disable_end -->
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="" class="col-md-2 required">State</label>
-                            <div class="col-md-2">
-                                <!-- mp_trans_disable_start -->
-                                <select name="ucurrentState" class="form-control" tabindex="12">
-                                    <option>California</option>
-                                </select>
-                                <!-- mp_trans_disable_end -->
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="" class="col-md-2 required">Zip Code</label>
-                            <div class="col-md-2">
-                                <!-- mp_trans_disable_start -->
-                                <input name="ucurrentZip" type="text" maxlength="5" tabindex="13" ng-model="currentZip" ng-pattern="/^\d+$/" required>
-                                <span class="error" ng-show="profileForm.ucurrentZip.$dirty && profileForm.ucurrentZip.$invalid">
-                                    <span ng-show="profileForm.ucurrentZip.$error.required">Zip Code is required.</span>
-                                    <span ng-show="profileForm.ucurrentZip.$error.pattern">Zip Code  contains invalid characters.</span>
-                                </span>
-                                <!-- mp_trans_disable_end -->
-                            </div>
-                        </div>
-                        <h2 class="form-subhead">Previous Home Address <span>(If you've moved in the last two years)</span></h2>
-                        <div class="form-item">
-                            <label for="" class="col-md-2">Street Address</label>
-                            <div class="col-md-2">
-                                <!-- mp_trans_disable_start -->
-                                <input name="uprevAdd" type="text" tabindex="14" ng-model="previousAdd" ng-pattern="/^\s*[a-zA-Z0-9 \/\.\,#\-\\]{1,60}\s*$/">
-                                <span class="error" ng-show="profileForm.uprevAdd.$dirty && profileForm.uprevAdd.$invalid">
-                                    <span ng-show="profileForm.uprevAdd.$error.required">Address is required.</span>
-                                    <span ng-show="profileForm.uprevAdd.$error.pattern">Address  contains invalid characters.</span>
-                                </span>
-                                <!-- mp_trans_disable_end -->
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="" class="col-md-2">City</label>
-                            <div class="col-md-2">
-                                <!-- mp_trans_disable_start -->
-                                <input name="uprevCity" type="text" tabindex="15" ng-model="previousCity" ng-pattern="/^\s*[a-zA-Z \.]{1,50}\s*$/">
-                                <span class="error" ng-show="profileForm.uprevCity.$dirty && profileForm.uprevCity.$invalid">
-                                    <span ng-show="profileForm.uprevCity.$error.required">City is required.</span>
-                                    <span ng-show="profileForm.uprevCity.$error.pattern">City  contains invalid characters.</span>
-                                </span>
-                                <!-- mp_trans_disable_end -->
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="" class="col-md-2">State</label>
-                            <div class="col-md-2">
-                                <!-- mp_trans_disable_start -->
-                                <select name="uprevState" class="form-control" tabindex="16">
-                                    <option>California</option>
-                                </select>
-                                <!-- mp_trans_disable_end -->
-                            </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="" class="col-md-2">Zip Code</label>
-                            <div class="col-md-2">
-                                <!-- mp_trans_disable_start -->
-                                <input name="uprevAdd" type="text" maxlength="5" tabindex="17" ng-model="previousZip" ng-pattern="/^\d+$/">
-                                <span class="error" ng-show="profileForm.uprevAdd.$dirty && profileForm.uprevAdd.$invalid">
-                                    <span ng-show="profileForm.uprevAdd.$error.required">Zip Code is required.</span>
-                                    <span ng-show="profileForm.uprevAdd.$error.pattern">Zip Code  contains invalid characters.</span>
+                                <input type="password" name="confirmPass" ng-model="confirmPass" ng-pattern="/^\s*(([0-9]+[a-zA-Z]+[0-9a-zA-Z]*)|([a-zA-Z]+[0-9]+[0-9a-zA-Z]*))\s*$/" ng-model-options="{ updateOn: 'blur' }"  maxlength="30" ng-minlength="8" tabindex="3" required>
+                                <span class="error" ng-show="profileForm.confirmPass.$dirty && profileForm.confirmPass.$invalid">
+                                    <span ng-show="profileForm.confirmPass.$error.required">Password is required.</span>
+                                    <span ng-show="profileForm.confirmPass.$error.minlength">Password must be a minimum of eight characters.</span>
+                                    <span ng-show="profileForm.confirmPass.$error.pattern">Password contains invalid characters.</span>
                                 </span>
                                 <!-- mp_trans_disable_end -->
                             </div>
                         </div>
                         <div class="text-error" ng-if="errorMsg !== ''">{{ errorMsg }}</div>
-                        <input type="submit" name="makeChanges" value="Make Changes" class="btnSubmit col-md-3" tabindex="18">
+                        <input type="submit" name="makeChanges" value="Make Changes" class="btnSubmit col-md-3" tabindex="4">
                     </div>
                 </form>
-                </div>
             </div>
         </div>
+      </div>
     </div>
+   
 
-
-
-
-
-controllersModule.controller('profileSettingPersonal', ['$scope', '$timeout', 'GetData', '$rootScope', 
-    function($scope, $timeout, GetData, $rootScope) {
+   controllersModule.controller('profileSettingPersonal', ['$scope', '$timeout', 'GetData', '$rootScope', 'PutData',
+    function($scope, $timeout, GetData, $rootScope, PutData) {
         
         //default value
-        $scope.user = {};
         $scope.errorMsg = '';
         $scope.suffixes = ["Jr", "Sr", "I", "II", "III", "IV"];
 
-        // read-only value
-        $scope.firstName = "test";
-        $scope.ssn = "XXX-XX-4121";
-        $scope.dob = "Jan 1, 2015";
-        $scope.gender = "Male";
+        // API path 
+        var urltoload = constants.profileSettingPersonalAPI;
 
-        //bind to select
-        //http://stackoverflow.com/questions/20672207/ng-select-with-an-object-and-its-properties-in-angularjs
-          $scope.objectOptions = {
-            "Blue": "color_1",
-            "Red": "color_2",
-            "Green": "color_3"
-          }
+        // State Object
+        // http://stackoverflow.com/questions/20672207/ng-select-with-an-object-and-its-properties-in-angularjs
+        $scope.stateOptions = {
+          "ca": "California",
+          "or": "Orlando"
+        }
 
+        // display the correct gender
+        $scope.checkGender = function(value){
+            switch(value.toLowerCase()) {
+                case 'm': 
+                    return 'Male'
+                    break;
+                case 'f': 
+                    return 'Female'
+                    break;
+                default: '';
+            }
+        };
+
+        // get the suffix
+        $scope.getSuffix = function(value){
+            switch(value.toLowerCase()) {
+                case 'jr': 
+                    return 0
+                    break;
+                case 'sr': 
+                    return 1
+                    break;
+                case 'i': 
+                    return 2
+                    break;
+                case 'ii': 
+                    return 3
+                    break;
+                case 'iii': 
+                    return 4
+                    break;
+                case 'iv': 
+                    return 5
+                    break;
+                default: '';
+            }
+        };
+
+        $scope.getPersonal = function() {
+            GetData.fetchData(urltoload).then(function (data) {
+                    if (data && data.error) {
+                        $scope.dataError = true;
+                    } else {
+                        console.log("we are here?");
+                        console.log(data);
+                        //found data
+                        if (data) {     
+                            // read-only value
+                            $scope.firstName = data.firstName;
+                            $scope.ssn = "XXX-XX-" + data.ssn;
+                            $scope.dob = data.dob;
+                            $scope.gender = $scope.checkGender(data.gender);
+
+                            // two-way bind
+                            $scope.lastName = data.lastName || '';
+                            $scope.middleInitial = data.lastName.toUpperCase() || '';
+
+                            if (data.suffix !== '') {
+                                suffixNum = $scope.getSuffix(data.suffix);
+                                $scope.suffix = data.suffix[suffixNum] || '';
+                            }
+
+                            $scope.email = data.email || '';
+
+                            phoneNumber = data.phoneNumber;
+                            $scope.phone1 = phoneNumber.substring(0,3) || '';
+                            $scope.phone2 = phoneNumber.substring(3,6) || '';
+                            $scope.phone3 = phoneNumber.substring(6,10) || '';
+
+                            $scope.driverNumber = data.driverLicenseNumber || '';
+                            //need to DO
+                            $scope.driverState = data.driverLicenseState || '';
+
+                            if (data.address) {
+                                $scope.currentAddress = data.address.streetAddress1 || '';
+                                $scope.currentCity = data.address.city || '';
+                                //define the state object above
+                                userState = data.address.state.toLowerCase();
+                                $scope.currentState = $scope.stateOptions[userState] || '';
+                                $scope.currentZip = data.address.zip || '';
+                            }
+
+                            if (data.prevAddress) {
+                                $scope.previousAdd = data.prevAddress.streetAddress1 || '';
+                                $scope.previousCity = data.prevAddress.city || '';
+                                //define the state object above
+                                userprevState = data.prevAddress.state.toLowerCase();
+                                $scope.previousState = $scope.stateOptions[userprevState] || '';
+                                $scope.previousZip = data.prevAddress.zip || '';
+                            }
+                        }
+                    }
+                }, function () {
+                    //fail to get url
+                    $scope.dataError = true;
+                    $('.form-item, .form-subhead, .btnSubmit').remove();
+                    $scope.errorMsg = "Sorry, there is an error retrieving your information. Please try again later.";
+                });
+        };
+
+        $scope.updatePersonal = function() {
+          //setting the updated model
+           var personalData = {
+                firstName: $scope.firstName,
+                lastName: $scope.lastName,
+                middleInitial: $scope.middleInitial,
+                suffix: $scope.suffix,
+                email: $scope.email,
+                ssn: $scope.ssn,
+                dob: $scope.dob,
+                gender: $scope.gender,
+                phoneNumber: $scope.phone1 + $scope.phone2 + $scope.phone3,
+                driverLicenseNumber: $scope.driverNumber,
+                driverLicenseState: $scope.driverState,
+                address: {
+                    city: $scope.currentAddress,
+                    state: $scope.currentState,
+                    streetAddress1: $scope.currentAddress,
+                    streetAddress2: '',
+                    zip: $scope.currentZip
+                },
+                prevAddress: {
+                    city: $scope.previousCity,
+                    state: $scope.previousState,
+                    streetAddress1: $scope.previousAdd,
+                    streetAddress2: '',
+                    zip: $scope.previousZip
+                }
+            };
+
+
+            //  Post Data
+            PutData.fetchData(urltoload, personalData)
+            .success(function (data2) {
+                if (data2 && data2.error) {
+                    $scope.dataError = true;
+                } else {
+                    console.log('successufully updated!');
+                    //redirect to confirmation
+                }
+            })
+            .error(function(data2){
+                return false;
+            });
+        };
+
+        //get data
+        $scope.getPersonal();
 
         //submit
         $scope.submitForm = function(isValid) {
@@ -264,9 +230,8 @@ controllersModule.controller('profileSettingPersonal', ['$scope', '$timeout', 'G
             
            }
            else {
-
             $scope.errorMsg = "Please fill in the required fields";
            }
         }
-
+        
 }]);
