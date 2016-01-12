@@ -1,0 +1,10 @@
+
+validation functions
+https://syt2.myfico.com/Include/ValidateFunctions.js
+
+form validation example
+http://tutsnare.com/form-validation-with-angularjs/
+
+
+state array
+http://plnkr.co/edit/IEBQkqJNifY5MZWloDP6?p=info
