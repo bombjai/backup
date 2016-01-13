@@ -21,6 +21,7 @@
 .profile-settings .btnSubmit {background-color: #1b75bc!important; font-size: 15px; font-weight: 400; border-radius: 5px!important; -moz-border-radius: 5px!important; -webkit-border-radius: 5px!important; padding: 15px 80px!important; color: white;}
 .profile-settings .error, .profile-settings .text-error {background-color: #FA787E; }
 .profile-settings .text-error { color: white; padding: 5px;}
+.profile-settings .text-error.success {background-color: #4eb748;}
 
 /* Profile Settings Mobile */
 @media only screen and (max-width: 640px) {

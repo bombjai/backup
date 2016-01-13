@@ -1,0 +1,55 @@
+
+   <div class="columns">
+    <div class="medium-12 columns">
+        <div id="profile-settings-userid" class="profile-settings selen-ps-userid" ng-controller="profileSettingUserid">
+            <div class="data-wrap mc_wrapper">
+                <h2 class="bb kl">Change your User ID</h2>
+                <form novalidate class="profile-form" name="profileForm" ng-submit="submitForm(profileForm.$valid)" autocomplete="off">
+                    <div class="form-body">
+                        <p>Change your User ID using the fields below and click "Make Changes" when finished.</p>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">Current User ID</label>
+                            <div class="col-md-2">
+                                <!-- mp_trans_disable_start -->
+                                <input type="text" name="ucurrentId" ng-model="currentId" ng-model-options="{ updateOn: 'blur' }"  maxlength="80" ng-minlength="3" tabindex="1" required>
+                                <span class="error" ng-show="profileForm.ucurrentId.$dirty && profileForm.ucurrentId.$invalid">
+									<span ng-show="profileForm.ucurrentId.$error.required">User ID is required.</span>
+									<span ng-show="profileForm.ucurrentId.$error.minlength">User ID must be a minimum of three characters.</span>
+								</span>
+								<!-- mp_trans_disable_end -->
+							</div>	
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">New User ID</label>
+                            <div class="col-md-2">
+                                 <!-- mp_trans_disable_start -->
+                                <input type="text" name="unewUserId" ng-model="newUserId" ng-model-options="{ updateOn: 'blur' }"  maxlength="80" ng-minlength="3" tabindex="2" required>
+                                <span class="error" ng-show="profileForm.unewUserId.$dirty && profileForm.unewUserId.$invalid">
+									<span ng-show="profileForm.unewUserId.$error.required">User ID is required.</span>
+									<span ng-show="profileForm.unewUserId.$error.minlength">User ID must be a minimum of three characters.</span>
+								</span>
+								<!-- mp_trans_disable_end -->
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">Confirm New User ID</label>
+                            <div class="col-md-2">
+                                <!-- mp_trans_disable_start -->
+                                <input type="text" name="uconfirmUserId" ng-model="confirmUserId" ng-model-options="{ updateOn: 'blur' }"  maxlength="80" ng-minlength="3" tabindex="3" required>
+                                <span class="error" ng-show="profileForm.uconfirmUserId.$dirty && profileForm.uconfirmUserId.$invalid">
+									<span ng-show="profileForm.uconfirmUserId.$error.required">User ID is required.</span>
+									<span ng-show="profileForm.uconfirmUserId.$error.minlength">User ID must be a minimum of three characters.</span>
+								</span>
+								<!-- mp_trans_disable_end -->
+                            </div>
+                        </div>
+                        <div class="text-error {{successMsg}}" ng-if="errorMsg !== ''">{{ errorMsg }}</div>
+                        <input type="submit" name="makeChanges" value="Make Changes" class="btnSubmit col-md-3" tabindex="4">
+                    </div>
+                </form>
+            </div>
+        </div>
+     </div>
+	</div>
+
+  

@@ -1,0 +1,60 @@
+
+	<div class="columns">
+    <div class="medium-12 columns">
+        <div id="profile-settings-status" class="profile-settings selen-ps-status" ng-controller="profileSettingStatus">
+            <div class="data-wrap mc_wrapper">
+                <h2 class="bb kl">Change email contact preferences</h2>
+                <form novalidate class="profile-form" name="profileForm" ng-submit="submitForm(profileForm.$valid)" autocomplete="off">
+                    <div class="form-body">
+                        <h3>myFICO E-mail Contact Options</h3>
+                        <div class="radio">
+                            <input type="checkbox" value="None" id="fico-recommend" name="check" />
+                            <label for="fico-recommend">myFICO Privileges email program.</label>
+                            <ul>
+                                <li>myFICO promotions</li>
+                                <li>myFICO newsletter: Forum topics, credit education/tools and events myFICO Recommends email program.</li>
+                            </ul>
+                        </div>
+                        <div class="radio">
+                            <input type="checkbox" value="None" id="fico-privileges" name="check" />
+                            <label for="fico-privileges">myFICO Recommends email program.</label>
+                            <ul>
+                                <li>Exclusive deals from myFICO partners negotiated just for myFICO members</li>
+                            </ul>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2"></label>
+                            <div class="col-md-2">
+                                <select name="ulang" ng-model="lang" class="form-control">
+                                    <option value="en-US">English</option>
+                                    <option value="es-US">Espa&ntilde;ol</option>
+                                </select>
+                            </div>
+                        </div>
+                        <p>Preferred language for emails.</p>
+                        
+
+						<h2>FQM E-mail Alert Options</h2>
+
+						<div class="phFQM">
+							<div class="radio">
+                            <input type="checkbox" value="None" id="FQMEmailAll" name="check" />
+                            <label for="fico-recommend">E-mail me once a week</label>
+                            <ul>
+                                <li>whether there's an alert or not so I know everything is OK. </li>
+                            </ul>
+                        </div>
+
+
+
+						</div>
+						
+
+                        <div class="text-error {{successMsg}}" ng-if="errorMsg !== ''">{{ errorMsg }}</div>
+                        <input type="submit" name="makeChanges" value="Make Changes" class="btnSubmit col-md-3" tabindex="4">
+                    </div>
+                </form>
+            </div>
+        </div>
+     </div>
+	</div>

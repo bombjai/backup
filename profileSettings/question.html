@@ -1,0 +1,49 @@
+
+	<div class="columns">
+    <div class="medium-12 columns">
+        <div id="profile-settings-question" class="profile-settings selen-ps-question" ng-controller="profileSettingQuestion">
+            <div class="data-wrap mc_wrapper">
+                <h2 class="bb kl">Change your secret question</h2>
+                <form novalidate class="profile-form" name="profileForm" ng-submit="submitForm(profileForm.$valid)" autocomplete="off">
+                    <div class="form-body">
+                        <p>Choose a new secret question from the options provided, enter and confirm your answer, and click "Make Changes" when finished.</p>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">Secret Question</label>
+                            <div class="col-md-2">
+                                <select name="secretQuestion" id="" class="form-control">
+                                    <option>Who was your childhood hero</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">Answer</label>
+                            <div class="col-md-2">
+                                <!-- mp_trans_disable_start -->
+                                <input type="text" name="uanswer" ng-model="answer" ng-model-options="{ updateOn: 'blur' }"  maxlength="30" ng-minlength="3" tabindex="2" required>
+                                <span class="error" ng-show="profileForm.uanswer.$dirty && profileForm.uanswer.$invalid">
+									<span ng-show="profileForm.uanswer.$error.required">Answer is required.</span>
+									<span ng-show="profileForm.uanswer.$error.minlength">Answer must be a minimum of three characters.</span>
+								</span>
+								<!-- mp_trans_disable_end -->
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label for="" class="col-md-2">Re-enter New Answer</label>
+                            <div class="col-md-2">
+                               <!-- mp_trans_disable_start -->
+                                <input type="text" name="uconfirmAnswer" ng-model="confirmAnswer" ng-model-options="{ updateOn: 'blur' }"  maxlength="30" ng-minlength="3" tabindex="3" required>
+                                <span class="error" ng-show="profileForm.uconfirmAnswer.$dirty && profileForm.uconfirmAnswer.$invalid">
+									<span ng-show="profileForm.uconfirmAnswer.$error.required">Answer is required.</span>
+									<span ng-show="profileForm.uconfirmAnswer.$error.minlength">Answer must be a minimum of three characters.</span>
+								</span>
+								<!-- mp_trans_disable_end -->
+                            </div>
+                        </div>
+                        <div class="text-error {{successMsg}}" ng-if="errorMsg !== ''">{{ errorMsg }}</div>
+                        <input type="submit" name="makeChanges" value="Make Changes" class="btnSubmit col-md-3" tabindex="4">
+                    </div>
+                </form>
+            </div>
+        </div>
+     </div>
+	</div>
