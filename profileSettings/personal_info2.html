@@ -1,0 +1,336 @@
+
+<div id="ptitle" class="mc_navheader hide-for-medium-down">Personal Info</div>
+    <div id="mc_ps" class="columns editinfo">
+        <div id="mc_ps_personal" class="medium-12 columns selen-ps-personal ps-wrapper" ng-controller="profileSettingPersonal">
+
+            <div id="mc_content_wrapper" class="myf_c_ mc_content_wrapper clearbox">
+                <div class="mc_nested_grid">
+                    <div id="mc_secNav" class="sticky show-for-small-only"><a href="/profile/personal_info" class="cancel back">Cancel</a></div>
+                    <div class="error" ng-show="errorMsg !== ''">{{errorMsg}}</div>
+                    
+                    <div class="note">
+                        <p>Fields marked with <span class="red-req">*</span> required field are required.</p>
+                    </div>
+
+                   <div class="mc_form editinfo_personal">
+                    <form novalidate class="profile-form" name="profileForm" ng-submit="submitForm(profileForm.$valid)">
+                        <div class="data-wrap clearbox">    
+                            <h2>Edit your personal info</h2>  
+                            <ul class="clearbox data-list">
+                                <li><span class="hasinput"><label>First Name</label><input type="text" ng-model="firstName" ng-disabled="true" name="firstName" placeholder="Enter First Name" /></span></li>        
+                                <li><span class="hasinput"><label>Middle Initial</label><input type="text" ng-model="middleName" name="middleName" placeholder="Enter Middle Name" maxlength="1"  ng-model-options="{ debounce: 200 }" ng-pattern="/[a-zA-Z]/" />
+                                    <span class="errNote" ng-show="profileForm.middleName.$dirty && profileForm.middleName.$invalid">
+                                    <span ng-show="profileForm.middleName.$error.pattern">- Middle Initial contains invalid characters</span>
+                                    </span>
+                                </span></li>       
+                                <li><span class="hasinput"><label class="form-req">Last Name</label><input type="text" ng-model="lastName" name="lastName" placeholder="Enter Last Name" maxlength="25" required ng-model-options="{ debounce: 200 }" ng-pattern="/^\s*[a-zA-Z \'\-\.]{1,25}\s*$/" />
+                                    <span class="errNote" ng-show="profileForm.lastName.$dirty && profileForm.lastName.$invalid">
+                                    <span ng-show="profileForm.lastName.$error.required">- Last name is required.</span>
+                                    <span ng-show="profileForm.lastName.$error.pattern">- Last name contains invalid characters.</span>
+                                    </span>
+                                </span>
+                                </li>
+                                <li><span class="hasinput"><label>Suffix</label><select name="suffix" ng-init="suffix='<%= request.getParameter( "v2" ) %>'" ng-model="suffix"  id="ddlSuffix" onchange="$(this).closest('span.hasinput').find('span.errNote').remove();">
+                                    <option value="">-- Select Suffix --</option>
+                                    <option value="JR">JR</option>
+                                    <option value="SR">SR</option>
+                                    <option value="I">I</option>
+                                    <option value="II">II</option>
+                                    <option value="III">III</option>
+                                    <option value="IV">IV</option>
+                                </select></span></li>   
+                                <li><span class="hasinput"><label class="form-req">Email Address</label><input type="text" ng-model="email" name="email" placeholder="Please enter email address" ng-pattern="/^\s*[A-Za-z0-9_-]+([\.]?[A-Za-z0-9_-]+)*[@]\w+([\.-]?\w+)*(\.[a-zA-Z]{2,10})+\s*$/" ng-model-options="{ debounce: 500 }" maxlength="80" required />
+                                    <span class="errNote" ng-show="profileForm.email.$dirty && profileForm.email.$invalid">
+                                        <span ng-show="profileForm.email.$error.required">- Email is required.</span>
+                                        <span ng-show="profileForm.email.$error.pattern">- Invalid email address.</span>
+                                    </span>
+                                </span></li>
+                                 <li><span class="hasinput"><label>Social Security Number</label><input type="text" ng-model="ssn" name="ssn" ng-disabled="true" /></span></li>     
+                                 <li><span class="hasinput"><label>Date of Birth</label><input type="text" ng-model="dob" name="dob" ng-disabled="true" /></span></li> 
+                                 <li><span class="hasinput"><label>Gender</label><input type="text" ng-model="gender" name="gender" ng-disabled="true" /></span></li> 
+                                <li><span class="hasinput"><label class="form-req">Phone Number</label><input type="text" ng-model="phone" ng-keyup="checkMobilePhone($event)" input-mask="{mask: '(999) 999-9999'}" maxlength="14" name="phone" placeholder="Please enter phone number" ng-model-options="{ debounce: 200 }" required />
+                                    <span class="errNote" ng-show="profileForm.phone.$dirty && profileForm.phone.$invalid">
+                                    <span ng-show="profileForm.phone.$error.required">- Phone is required.</span>
+                                </span>
+                                </span></li>
+                                <li><span class="hasinput"><label>Driver&apos;s License Number</label><input type="text" ng-model="driverlicense" name="driver_license_number" placeholder="Enter Driver's License Number" maxlength="20" /></span></li>     
+                                <li><span class="hasinput"><label>State</label><select name="driver_license_state" ng-model="driverstate"  id="ddlState" onchange="$(this).closest('span.hasinput').find('span.errNote').remove();">
+                                    <option value="">-- Select State --</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AS">American Samoa</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="AA">Armed Forces America</option>
+                                    <option value="AE">Armed Forces Europe</option>
+                                    <option value="AP">Armed Forces Pacific</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="DC">District of Columbia</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="FM">Federated States</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="GU">Guam</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MH">Marshall Islands</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="MP">N. Mariana Isles</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PW">Palau</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="PR">Puerto Rico</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VI">Virgin Islands</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WY">Wyoming</option>
+                                </select></span></li>
+                            </ul>
+                        </div>
+
+
+                   <div class="mc_form editinfo_address">
+                        <div class="data-wrap clearbox">    
+                            <h2>Current Home Address</h2>   
+                            <ul class="clearbox data-list">
+                            <li><span class="hasinput"><label class="form-req">Street Address 1</label><input type="text" ng-model="streetAddress1" name="streetAddress1" placeholder="Enter Street Address 1" ng-model-options="{ debounce: 500 }" ng-pattern="/^\s*[a-zA-Z0-9 \/\.\,#\-\\]{1,60}\s*$/" required />
+                                <span class="errNote" ng-show="profileForm.streetAddress1.$dirty && profileForm.streetAddress1.$invalid">
+                                    <span ng-show="profileForm.streetAddress1.$error.required">- Address is required.</span>
+                                    <span ng-show="profileForm.streetAddress1.$error.pattern">- Address contains invalid characters.</span>
+                                </span>
+                            </span></li>     
+                            <li><span class="hasinput"><label>Street Address 2</label><input type="text" ng-model="streetAddress2" name="streetAddress2" placeholder="Enter Street Address 2" ng-model-options="{ debounce: 500 }" ng-pattern="/^\s*[a-zA-Z0-9 \/\.\,#\-\\]{1,60}\s*$/" />
+                                <span class="errNote" ng-show="profileForm.streetAddress2.$dirty && profileForm.streetAddress2.$invalid">
+                                    <span ng-show="profileForm.streetAddress2.$error.pattern">- Address contains invalid characters.</span>
+                                </span>
+                            </span></li>     
+                            <li><span class="hasinput"><label class="form-req">City</label><input type="text" ng-model="city" name="city" placeholder="Enter City" ng-model-options="{ debounce: 500 }" ng-pattern="/^\s*[a-zA-Z \.]{1,50}\s*$/" required />
+                                <span class="errNote" ng-show="profileForm.city.$dirty && profileForm.city.$invalid">
+                                    <span ng-show="profileForm.city.$error.required">- City is required.</span>
+                                    <span ng-show="profileForm.city.$error.pattern">- City  contains invalid characters.</span>
+                                </span>
+                            </span></li>       
+                                <li><span class="hasinput"><label class="form-req">State</label><select name="state" ng-model="state" ng-model-options="{ debounce: 500 }" required id="state" onchange="$(this).closest('span.hasinput').find('span.errNote').remove();">
+                                    <option value="">-- Select State --</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AS">American Samoa</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="AA">Armed Forces America</option>
+                                    <option value="AE">Armed Forces Europe</option>
+                                    <option value="AP">Armed Forces Pacific</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="DC">District of Columbia</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="FM">Federated States</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="GU">Guam</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MH">Marshall Islands</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="MP">N. Mariana Isles</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PW">Palau</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="PR">Puerto Rico</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VI">Virgin Islands</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                                    <span class="errNote" ng-show="profileForm.state.$dirty && profileForm.state.$invalid">
+                                    <span ng-show="profileForm.state.$error.required">- State is required.</span>
+                                </span>
+                                
+                                </span></li>
+                                <li><span class="hasinput"><label class="form-req">Zip</label><input type="text" ng-model="zip" name="zip" placeholder="Enter ZIP" maxlength="5" ng-model-options="{ debounce: 500 }" ng-pattern="/^\d+$/" required />
+                                    <span class="errNote" ng-show="profileForm.zip.$dirty && profileForm.zip.$invalid">
+                                    <span ng-show="profileForm.zip.$error.required">- Zip Code is required.</span>
+                                    <span ng-show="profileForm.zip.$error.pattern">- Zip Code contains invalid characters.</span>
+                                </span>
+                                </span></li>        
+                            </ul>
+                        </div>
+
+                     </div>
+                   <div class="mc_form editinfo_prevAddress">
+                        <div class="data-wrap clearbox">    
+                            <h2>Previous Home Address <span>(If you've moved in the last two years)</span></h2>   
+                            <ul class="clearbox data-list">
+                            <li><span class="hasinput"><label>Street Address 1</label><input type="text" ng-model="previousAdd" name="previousAdd" placeholder="Enter Street Address 1" ng-model-options="{ debounce: 500 }" ng-pattern="/^\s*[a-zA-Z0-9 \/\.\,#\-\\]{1,60}\s*$/" />
+                                <span class="errNote" ng-show="profileForm.previousAdd.$dirty && profileForm.previousAdd.$invalid">
+                                    <span ng-show="profileForm.previousAdd.$error.pattern">- Address contains invalid characters.</span>
+                                </span>
+                            </span></li>   
+                            <li><span class="hasinput"><label>City</label><input type="text" ng-model="previousCity" name="previousCity" placeholder="Enter City" ng-model-options="{ debounce: 500 }" ng-pattern="/^\s*[a-zA-Z \.]{1,50}\s*$/" />
+                                <span class="errNote" ng-show="profileForm.previousCity.$dirty && profileForm.previousCity.$invalid">
+                                    <span ng-show="profileForm.previousCity.$error.pattern">- City  contains invalid characters.</span>
+                                </span>
+                            </span></li>       
+                                <li><span class="hasinput"><label>State</label><select name="previousState" ng-init="previousState='<%= request.getParameter( "v4" ) %>'" ng-model="previousState"  id="previousState" onchange="$(this).closest('span.hasinput').find('span.errNote').remove();">
+                                    <option value="">-- Select State --</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AS">American Samoa</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="AA">Armed Forces America</option>
+                                    <option value="AE">Armed Forces Europe</option>
+                                    <option value="AP">Armed Forces Pacific</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="DC">District of Columbia</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="FM">Federated States</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="GU">Guam</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MH">Marshall Islands</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="MP">N. Mariana Isles</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PW">Palau</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="PR">Puerto Rico</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VI">Virgin Islands</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WY">Wyoming</option>
+                                </select></span></li>
+                                <li><span class="hasinput"><label>Zip</label><input type="text" ng-model="previousZip" name="previousZip" maxlength="5" placeholder="Enter ZIP" ng-model-options="{ debounce: 500 }" ng-pattern="/^\d+$/" />
+                                    <span class="errNote" ng-show="profileForm.previousZip.$dirty && profileForm.previousZip.$invalid">
+                                    <span ng-show="profileForm.previousZip.$error.pattern">- Zip Code contains invalid characters.</span>
+                                </span></li>        
+                            </ul>
+                        </div>
+
+                     
+                        <!-- close button -->
+
+                        <a id="address_submit" href="javascript:;" ng-click="submitForm(profileForm.$valid);" class="button submitData" ng-if="canEdit">
+                            <span class="show-for-small-only">Done</span><span class="hide-for-small-only">Submit</span>
+                        </a>
+                        <a href="javascript:;" disabled="disabled" class="button submitData submitData_clicked deleteData_clicked">
+                            <span class="show-for-small-only">Please wait...</span><span class="hide-for-small-only">Please wait...</span>
+                        </a>
+                        <a href="/profile/personal_info" class="button cancel hide-for-small-only">Cancel</a>
+
+                </div>
+            </form>
+            </div>
+
+
+
+         </div>
+
+        </div>
+
+</div>
+
+
