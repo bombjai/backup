@@ -1,7 +1,7 @@
-Install Boilplate - Yeoman
+/*********  Install Boilplate - Yeoman  ***********/
 http://yeoman.io/codelab/index.html
 
-check version
+/*********  check version  ***********/
 - node --version && npm --version
 - yo --version && bower --version && grunt --version
 - bower list
@@ -9,29 +9,44 @@ check version
 - bower install --save jquery-ui
 
 
-Pre-installation
+/*********  Pre-installation  ***********/
 - Install git
 - Install node
 - sduo npm install --global npm@latest
 - sudo npm install --global yo bower grunt-cli
 
-Install Yo Generator
+/*********  Install Yo Generator  ***********/
 - yo angular
 
 
 
 
-Reinstall
+/*********  Reinstall  ***********/
 - npm cache clean && npm uninstall -g bower && npm install -g bower
 
 
 
+/*********  How to clone git repository  ***********/
+http://stackoverflow.com/questions/6613166/git-copying-one-repository-to-another-empty-one-duplicating
+
+mkdir foo; cd foo 
+# move to a scratch dir
+
+git clone --bare https://github.com/exampleuser/old-repository.git
+# Make a bare clone of the repository
+
+cd old-repository.git
+git push --mirror https://github.com/exampleuser/new-repository.git
+# Mirror-push to the new repository
+
+cd ..
+rm -rf old-repository.git  
+# Remove our temporary local repository
 
 
 
 
-
-For gulp (NOT WORKING?)
+/*********  For gulp (NOT WORKING?) ***********/
 - npm install --save-dev gulp-livereload
 - git config --global url."https://".insteadOf git://    (not needed)
 
