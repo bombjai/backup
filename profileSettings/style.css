@@ -32,3 +32,19 @@
 	.profile-settings .col-md-3 { margin-left: 0!important; float: right;}
 	.profile-settings .form-body p.note { width: inherit; margin-bottom: 15px; }
 }
+
+
+
+
+/* NEW Profile Settings */
+.ps-wrapper .mc_form {display: block;}
+.ps-wrapper .button {float: left; margin-right:10px;}
+.ps-wrapper .form-req:after { content: "*"; color: #ca3928;}
+.ps-wrapper .red-req, .ps-wrapper .error {color: #ca3928;}
+.ps-wrapper .ps-err-msg-top {margin: 20px 0px 20px 10px;}
+.ps-wrapper .ps-err-msg-bot {margin-bottom: 20px;}
+.ps-wrapper .ps-err-msg-top.success, .ps-wrapper .ps-err-msg-bot.success {color: rgb(78, 183, 72);}
+
+/* NEW Profile Settings MOBILE */
+.ps-wrapper #mc_secNav .cancel.back {text-indent: 0; width: 80%; }
+.ps-wrapper .ps-mob-back {display: none; margin: 10px 0;}

@@ -8,19 +8,24 @@ serviceModule.factory('profileSettingsCheck', [
         		return this.updateMsg;
 	        },
 		    hideFormFail: function() {
-		    	this.remove();
+		    	this.removeBody();
 		    	return this.jsonErrorMsg;
 		    },
 		    addGreenStyle: function() {
-		    	return $('.text-error').addClass('success');
+		    	$('.ps-wrapper .ps-mob-back').css({'display':'block'});
+		    	$('.ps-err-msg-bot, .ps-err-msg-top').addClass('success');
+		    	return;
+
 		    },
 		    removeBody: function() {
-		    	return $('.form-item, .form-subhead, .btnSubmit, .description, .note').remove();
+		    	return $('.profile-form, .submitData, .cancel, .note').remove();
+		    },
+		    confirmMsg: function(val){
+		    	return 'New ' + val + ' and Confirmation ' + val + ' did not match. Re-enter both, making sure they are identical.'
 		    },
 		    defaultErrorMsg: 'Please fill in all the fields',
 		    jsonErrorMsg: 'Sorry, there is an error retrieving your information. Please try again later.',
-		    updateMsg:'Your Information has been updated',
-		    confirmPassMsg: 'New Password and Confirmation Password did not match. Re-enter both, making sure they are identical.'
+		    updateMsg:'Thank you. Your member information is now updated.'
 
 		}//end return
 	        
